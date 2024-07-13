@@ -14,8 +14,17 @@
     <div class="navbar-start">
       <%= link_to 'Home', root_path, class: 'navbar-item' %>
       <%= link_to 'About', about_path, class: 'navbar-item' %>
-      <%= link_to 'Brands', brands_path, class: 'navbar-item' %>
-      <%= link_to 'Types', product_categories_path, class: 'navbar-item' %>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Explore
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+      <%= link_to 'By Brands', brands_path, class: 'navbar-item' %>
+ </a>
+          <a class="navbar-item is-selected">
+      <%= link_to 'By Types', product_categories_path, class: 'navbar-item' %>
+       </a>
     </div>
   </div>
 </nav>
