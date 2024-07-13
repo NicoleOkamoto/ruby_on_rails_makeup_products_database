@@ -15,8 +15,7 @@
         <p><strong>Brand:</strong> <%= makeup_product.brand.brand_name %></p>
         <p><strong>Category:</strong> <%= makeup_product.product_category.product_type %></p>
         <p><strong>Price:</strong> <%= number_to_currency(makeup_product.price, unit: "$") %></p>
-        <%= link_to 'View details', makeup_product_path(makeup_product), class: 'button is-link' %>
-
+        <%= link_to 'View details', makeup_product_path(makeup_product), class: 'button is-danger is-light mt-4' %>
       </div>
     </div>
     </div>

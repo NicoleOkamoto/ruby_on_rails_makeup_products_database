@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
+  root "makeup_products#index"
   get "makeup_products/index"
   get "makeup_products/show"
   get "product_categories/index"
   get "product_categories/show"
   get "brands/index"
   get "brands/show"
-   root 'home#index'
-   get 'about', to: 'pages#about'
-   get 'product', to: 'pages#product'
+      get "about", to: "pages#about"
+   get "product", to: "pages#product"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :brands, only: [:index, :show]
-  resources :product_categories, only: [:index, :show]
-  resources :makeup_products, only: [:index, :show]
+  resources :brands, only: [ :index, :show ]
+  resources :product_categories, only: [ :index, :show ]
+  resources :makeup_products, only: [ :index, :show ]
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
