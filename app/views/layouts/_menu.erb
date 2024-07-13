@@ -1,10 +1,17 @@
 
-<nav>
-  <ul>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'Brands', brands_path %></li>
-    <li><%= link_to 'Types', product_categories_path %></li>
-    <li><%= link_to 'All Products', makeup_products_path %></li>
-  </ul>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+
+<%= image_tag 'MAKEUP.png', style: 'max-width: 150px; height: auto;' %>
+</div>
+  <div class="navbar-menu is-active">
+
+<%= link_to 'Home', root_path, class: 'navbar-item is-large' %>
+<%= link_to 'About', about_path, class: 'navbar-item' %>
+<%= link_to 'Brands', brands_path, class: 'navbar-item' %>
+<%= link_to 'Types', product_categories_path, class: 'navbar-item' %>
+<%= link_to 'All Products', makeup_products_path, class: 'navbar-item' %>
+
+
+  </div>
 </nav>
