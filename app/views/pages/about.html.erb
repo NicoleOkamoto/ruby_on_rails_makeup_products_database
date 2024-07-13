@@ -1,0 +1,33 @@
+<h1>About Our Makeup Product Database</h1>
+
+<h2>Data Sources</h2>
+<p>Our application pulls data from the following sources:</p>
+<ul>
+  <li>
+    <strong>Makeup API:</strong>
+    <p>This API conforms to REST principles and provides detailed information about various makeup products. We pull data such as product name, type, category, brand, price, description, tags, and more.</p>
+    <p>API Endpoint: <a href="http://makeup-api.herokuapp.com/api/v1/products.json" target="_blank">http://makeup-api.herokuapp.com/api/v1/products.json</a></p>
+  </li>
+  <li>
+    <strong>Faker Gem:</strong>
+    <p>We use the Faker gem to generate additional data for testing and development purposes, ensuring our database is well-populated with realistic information.</p>
+  </li>
+</ul>
+
+<h2>Database Structure</h2>
+<p>Our database consists of the following tables:</p>
+<ul>
+  <li>
+    <strong>Makeup Products:</strong> Stores details about individual makeup products, including their name, type, category, brand, price, description, tags, and more.
+  </li>
+  <li>
+    <strong>Product Categories:</strong> Stores the categories of makeup products, linking them to specific types.
+  </li>
+  <li>
+    <strong>Brands:</strong> Stores information about the brands associated with the makeup products.
+  </li>
+</ul>
+
+<h2>ERD Diagram</h2>
+<p>Below is the ERD diagram that illustrates the relationships between the tables in our database:</p>
+<%= image_tag 'erd.png', alt: 'ERD Diagram', style: 'max-width: 100%; height: auto;' %>
