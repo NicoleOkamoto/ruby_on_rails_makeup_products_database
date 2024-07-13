@@ -1,0 +1,7 @@
+<h1><%= @brand.name %></h1>
+<h2>Products</h2>
+<ul>
+  <% @makeup_products.each do |product| %>
+    <li><%= link_to product.name, makeup_product_path(product) %></li>
+  <% end %>
+</ul>
