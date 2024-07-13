@@ -1,7 +1,8 @@
-<h1><%= @brand.name %></h1>
+<h1><%= @brand.brand_name %></h1>
 <h2>Products</h2>
-<ul>
+
+<div class="columns is-multiline">
   <% @makeup_products.each do |product| %>
-    <li><%= link_to product.name, makeup_product_path(product) %></li>
+      <%= render 'layouts/product_card', makeup_product: product %>
   <% end %>
-</ul>
+</div>
