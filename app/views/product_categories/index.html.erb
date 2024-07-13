@@ -1,9 +1,14 @@
-<h1 class="title has-text-primary">Product Categories</h1>
+<section class="hero">
+<div class="hero-body">
+<h1 class="title is-4 has-text-danger	">Explore by Product Type</h1>
+</div>
+</section>
+
 <div class="grid is-col-min-12 row-gap-6">
   <% @product_category.each do |category| %>
      <div class="cell">
     <div class="box">
-    <%= link_to category.product_type, product_category_path(category) %>
+    <%= link_to category.product_type.capitalize, product_category_path(category) %>
     </div>
     </div>
 

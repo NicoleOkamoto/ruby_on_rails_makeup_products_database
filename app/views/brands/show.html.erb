@@ -1,5 +1,8 @@
-<h1><%= @brand.brand_name %></h1>
-<h2>Products</h2>
+<section class="hero">
+<div class="hero-body">
+<h1 class="title is-4 has-text-danger	"><%= @brand.brand_name.capitalize %></h1>
+</div>
+</section>
 
 <div class="columns is-multiline">
   <% @makeup_products.each do |product| %>

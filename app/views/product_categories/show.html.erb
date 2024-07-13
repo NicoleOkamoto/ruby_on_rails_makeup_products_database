@@ -1,5 +1,8 @@
-<h1><%= @product_category.product_type %></h1>
-<h2>Products</h2>
+<section class="hero">
+<div class="hero-body">
+<h1 class="title is-4 has-text-danger	"><%= @product_category.product_type.capitalize %></h1>
+</div>
+</section>
 
 <div class="columns is-multiline">
   <% @makeup_product.each do |product| %>
