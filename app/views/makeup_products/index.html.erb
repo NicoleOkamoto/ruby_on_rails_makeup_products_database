@@ -1,6 +1,6 @@
 <h1>All Products</h1>
 <ul>
   <% @makeup_products.each do |product| %>
-    <li><%= link_to product.product_name, makeup_product_path(product) %></li>
+    <%= render 'layouts/product_card', makeup_product: product %>
   <% end %>
 </ul>
