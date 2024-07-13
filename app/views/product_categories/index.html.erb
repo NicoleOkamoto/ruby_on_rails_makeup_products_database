@@ -1,0 +1,6 @@
+<h1 class="title has-text-primary">Product Categories</h1>
+<ul>
+  <% @product_category.each do |category| %>
+    <li><%= link_to category.product_type, product_category_path(category) %></li>
+  <% end %>
+</ul>
