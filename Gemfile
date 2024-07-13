@@ -5,8 +5,8 @@ gem "rails", "~> 7.2.0.beta3"
 # Bulma for styling
 gem "bulma-rails", "~> 1.0.0"
 # Pagination
-gem 'will_paginate', '~> 3.3'
-gem 'will_paginate-bulma'
+gem "will_paginate", "~> 3.3"
+gem "will_paginate-bulma"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
