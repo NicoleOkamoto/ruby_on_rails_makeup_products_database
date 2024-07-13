@@ -1,4 +1,5 @@
-<% if makeup_product %>
+<% @makeup_products.each do |product| %>
+
  <div class="column is-one-quarter">
     <div class="card">
       <div class="card-image">
@@ -15,11 +16,8 @@
         <p><strong>Brand:</strong> <%= makeup_product.brand.brand_name %></p>
         <p><strong>Category:</strong> <%= makeup_product.product_category.product_type %></p>
         <p><strong>Price:</strong> <%= number_to_currency(makeup_product.price, unit: "$") %></p>
-        <%= link_to 'View details', makeup_product_path(makeup_product), class: 'button is-link' %>
-
+      <%= link_to 'product', product_path %>
       </div>
     </div>
     </div>
-<% else %>
-  <p>No product data available.</p>
-<% end %>
+  <% end %>

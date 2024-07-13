@@ -3,7 +3,10 @@
 <div class="columns is-multiline">
   <% @makeup_products.each do |product| %>
     <%= render 'layouts/product_card', makeup_product: product %>
-  <% end %>
+
+    <% end %>
+
 </div>
+
 
 <%= will_paginate @makeup_products, renderer: BulmaPagination::Rails, class: 'is-centered' %>

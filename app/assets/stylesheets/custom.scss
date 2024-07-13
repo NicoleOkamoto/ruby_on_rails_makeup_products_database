@@ -1,7 +1,7 @@
 @import "bulma";
 
 :root {
-  --bulma-link-text: #555555; // Set your desired link color
+  --bulma-link-text: #555555;
 
   .has-text-primary {
     color: #800080 !important;
@@ -10,6 +10,12 @@
 
 .navbar-start {
   display: flex;
-  justify-content: center; /* Center align items horizontally */
-  align-items: center; /* Center align items vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

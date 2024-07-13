@@ -1,17 +1,34 @@
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path do %>
+      <%= image_tag 'makeup1.png', style: 'width: 84px; height: 84px;' %>
+    <% end %>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-<div class="navbar-brand">
-
-<%= image_tag 'MAKEUP.png', style: 'max-width: 150px; height: auto;' %>
-</div>
-  <div class="navbar-menu is-active">
-
-<%= link_to 'Home', root_path, class: 'navbar-item is-large' %>
-<%= link_to 'About', about_path, class: 'navbar-item' %>
-<%= link_to 'Brands', brands_path, class: 'navbar-item' %>
-<%= link_to 'Types', product_categories_path, class: 'navbar-item' %>
-<%= link_to 'All Products', makeup_products_path, class: 'navbar-item' %>
-
-
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to 'Home', root_path, class: 'navbar-item' %>
+      <%= link_to 'About', about_path, class: 'navbar-item' %>
+      <%= link_to 'Brands', brands_path, class: 'navbar-item' %>
+      <%= link_to 'Types', product_categories_path, class: 'navbar-item' %>
+      <%= link_to 'All Products', makeup_products_path, class: 'navbar-item' %>
+    </div>
   </div>
 </nav>
+
+<style>
+  .navbar {
+    background-color: #ffb6c1;
+  }
+  .navbar-item {
+    font-size: 1.2rem;
+  }
+  .navbar-burger {
+    color: #fff;
+  }
+</style>

@@ -1,1 +1,23 @@
- <%= render 'layouts/product_card' %>
+
+<div class="box">
+
+<h1 class="title"><%= @makeup_product.product_name %></h1>
+<div class="card">
+<div class="card-image">
+    <figure class="image">
+
+          <%= image_tag @makeup_product.api_featured_image, class: "product-image" %>
+
+      </figure>
+      </div>
+      </div>
+
+
+      <div class="content">
+        <p><strong>Brand:</strong> <%= @makeup_product.brand.brand_name %></p>
+        <p><strong>Category:</strong> <%= @makeup_product.product_category.product_type %></p>
+        <p><strong>Price:</strong> <%= number_to_currency(@makeup_product.price, unit: "$") %></p>
+        <p><strong>Description:</strong> <%= @makeup_product.description %></p>
+
+  </div>
+</div>
