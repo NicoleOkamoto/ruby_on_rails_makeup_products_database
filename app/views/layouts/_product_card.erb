@@ -1,19 +1,26 @@
-<div class="column is-one-third">
-<div class="card">
-<div class="card-image">
-<% if @makeup_product.api_featured_image.present? %>
-  <%= image_tag @makeup_product.api_featured_image %>
-  <% else %>
- <%= image_tag 'default-image.png' %>
-        <% end %>
-</div>
-  <div class="card-content">
-    <h1 class="title"><%= @makeup_product.product_name %></h1>
-    <p><%= @makeup_product.description %></p>
-    <p><strong>Brand:</strong> <%= @makeup_product.brand.brand_name %></p>
-    <p><strong>Category:</strong> <%= @makeup_product.product_category.product_type %></p>
-    <p><strong>Price:</strong> <%= number_to_currency(@makeup_product.price, unit: "$") %></p>
-    <p><strong>Tags:</strong> <%= @makeup_product.tag_list %></p>
-  </div>
-</div>
-</div>
+<% if makeup_product %>
+  <div class="column is-one-third">
+  <div class="card">
+    <div class="card-image">
+    <figure  class="image is-3by4">
+      <% if makeup_product.api_featured_image.present? %>
+        <%= image_tag makeup_product.api_featured_image %>
+      <% else %>
+        <%= image_tag 'default-image.png' %>
+      <% end %>
+      </figure>
+    </div>
+    <div class="card-content">
+      <h1 class="title"><%= makeup_product.product_name %></h1>
+      <p><%= makeup_product.description %></p>
+      <p><strong>Brand:</strong> <%= makeup_product.brand.brand_name %></p>
+      <p><strong>Category:</strong> <%= makeup_product.product_category.product_type %></p>
+      <p><strong>Price:</strong> <%= number_to_currency(makeup_product.price, unit: "$") %></p>
+      <p><strong>Tags:</strong> <%= makeup_product.tag_list %></p>
+    </div>
+    </div>
+
+<% else %>
+  <p>No product data available.</p>
+<% end %>
+ </div>
