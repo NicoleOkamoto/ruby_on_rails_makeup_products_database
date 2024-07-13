@@ -1,6 +1,11 @@
 <h1 class="title has-text-primary">Product Categories</h1>
-<ul>
+<div class="grid is-col-min-12 row-gap-6">
   <% @product_category.each do |category| %>
-    <li><%= link_to category.product_type, product_category_path(category) %></li>
-  <% end %>
-</ul>
+     <div class="cell">
+    <div class="box">
+    <%= link_to category.product_type, product_category_path(category) %>
+    </div>
+    </div>
+
+    <% end %>
+</div>

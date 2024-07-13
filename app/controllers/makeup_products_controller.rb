@@ -1,6 +1,6 @@
 class MakeupProductsController < ApplicationController
   def index
-    @makeup_products = MakeupProduct.all
+    @makeup_products = MakeupProduct.paginate(page: params[:page], per_page: 20)
   end
 
   def show
