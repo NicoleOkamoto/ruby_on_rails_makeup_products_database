@@ -33,7 +33,6 @@ data.each do |product_data|
   # Create makeup product
   MakeupProduct.create(
     product_name: product_data['name'],
-    product_type: product_data['product_type'],
     product_category_id: product_category.id,
     product_tags: product_data['tag_list'].join(', '),
     brand_id: brand.id,
