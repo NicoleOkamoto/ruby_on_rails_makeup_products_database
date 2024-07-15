@@ -5,12 +5,12 @@
 </section>
 
 <div class="grid is-col-min-12 row-gap-6">
-  <% @product_category.each do |category| %>
-     <div class="cell">
-    <div class="box">
-    <%= link_to category.product_type.capitalize, product_category_path(category) %>
-    </div>
-    </div>
-
-    <% end %>
-</div>
+  <% @product_type.each do |type, category| %>
+    <% if type.present? %>
+      <div class="cell">
+        <div class="box">
+          <%= link_to type.capitalize, product_category_path(type) %>        </div>
+      </div>
+          <% end %>
+        <% end %>
+      </div>
