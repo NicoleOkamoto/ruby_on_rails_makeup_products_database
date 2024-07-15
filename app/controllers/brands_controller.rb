@@ -1,6 +1,6 @@
 class BrandsController < ApplicationController
   def index
-    @brand = Brand.all
+    @brand = Brand.joins(:makeup_products).distinct
   end
 
   def show
