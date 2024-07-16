@@ -50,3 +50,12 @@
     </div>
   </div>
 </div>
+
+<div class="container mt-6">
+  <h1 class="title is-4 has-text-danger">You might like!</h1>
+    <div class="columns is-multiline">
+      <% @makeup_product.brand.makeup_products.limit(4).each do |related_product| %>
+        <%= render 'layouts/product_card', makeup_product: related_product %>
+      <% end %>
+    </div>
+</div>
