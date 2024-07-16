@@ -1,11 +1,12 @@
 <section class="hero">
-<div class="hero-body">
-<h1 class="title is-4 has-text-danger	"><%= @product_category.product_type.capitalize %></h1>
-</div>
+  <div class="hero-body">
+    <h1 class="title is-4 has-text-danger">
+      <%= @product_category.product_type.capitalize %>
+    </h1>
+  </div>
 </section>
 
 <div class="columns is-multiline">
-  <% @makeup_products.each do |product| %>
-      <%= render 'layouts/product_card', makeup_product: product %>
-  <% end %>
+  <% @makeup_products.each do |product| %> <%= render 'layouts/product_card',
+  makeup_product: product %> <% end %>
 </div>

@@ -1,33 +1,138 @@
-<h1>About Our Makeup Product Database</h1>
+<section class="hero">
+  <div class="hero-body">
+    <h1 class="title is-3 has-text-danger">Project Overview</h1>
+    <p>
+      This project utilizes data sourced from the
+      <a href="http://makeup-api.herokuapp.com/"><strong>Makeup API</strong></a>
+      database, providing users access to a diverse catalog of over 800 makeup
+      products. The application allows users to explore and navigate through
+      these products, sorting them by brand and category for easy discovery.
+    </p>
+  </div>
+</section>
 
-<h2>Data Sources</h2>
-<p>Our application pulls data from the following sources:</p>
-<ul>
-  <li>
-    <strong>Makeup API:</strong>
-    <p>This API conforms to REST principles and provides detailed information about various makeup products. We pull data such as product name, type, category, brand, price, description, tags, and more.</p>
-    <p>API Endpoint: <a href="http://makeup-api.herokuapp.com/api/v1/products.json" target="_blank">http://makeup-api.herokuapp.com/api/v1/products.json</a></p>
-  </li>
-  <li>
-    <strong>Faker Gem:</strong>
-    <p>We use the Faker gem to generate additional data for testing and development purposes, ensuring our database is well-populated with realistic information.</p>
-  </li>
-</ul>
+<div class="content">
+  <h1 class="title is-4">Database Structure</h1>
 
-<h2>Database Structure</h2>
-<p>Our database consists of the following tables:</p>
-<ul>
-  <li>
-    <strong>Makeup Products:</strong> Stores details about individual makeup products, including their name, type, category, brand, price, description, tags, and more.
-  </li>
-  <li>
-    <strong>Product Categories:</strong> Stores the categories of makeup products, linking them to specific types.
-  </li>
-  <li>
-    <strong>Brands:</strong> Stores information about the brands associated with the makeup products.
-  </li>
-</ul>
+  <div class="box">
+    <h2 class="subtitle is-6">makeup_products Table:</h2>
+    <ul>
+      <li>
+        <strong>id</strong> (Integer, primary key): Unique identifier for each
+        product.
+      </li>
+      <li>
+        <strong>product_name</strong> (String): Name of the makeup product.
+      </li>
+      <li>
+        <strong>product_category_id</strong> (Integer, foreign key referencing
+        <code>product_categories</code>): Identifies the product's category.
+      </li>
+      <li>
+        <strong>product_tags</strong> (String): Tags associated with the
+        product.
+      </li>
+      <li>
+        <strong>brand_id</strong> (Integer, foreign key referencing
+        <code>brands</code>): Identifies the product's brand.
+      </li>
+      <li><strong>price</strong> (Decimal): Price of the product.</li>
+      <li>
+        <strong>description</strong> (Text): Detailed description of the
+        product.
+      </li>
+      <li>
+        <strong>tag_list</strong> (String): Additional tags or metadata related
+        to the product.
+      </li>
+      <li>
+        <strong>api_featured_image</strong> (String): URL or path to the
+        featured image of the product.
+      </li>
+    </ul>
+  </div>
 
-<h2>ERD Diagram</h2>
-<p>Below is the ERD diagram that illustrates the relationships between the tables in our database:</p>
-<%= image_tag 'erd.png', alt: 'ERD Diagram', style: 'max-width: 100%; height: auto;' %>
+  <div class="box">
+    <h2 class="subtitle is-6">product_categories Table:</h2>
+    <ul>
+      <li>
+        <strong>id</strong> (Integer, primary key): Unique identifier for each
+        category.
+      </li>
+      <li>
+        <strong>product_type</strong> (String): Type of the product (e.g.,
+        Blush, Lipstick).
+      </li>
+      <li>
+        <strong>product_category</strong> (String): Specific category within the
+        product type (e.g., Matte, Glossy).
+      </li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2 class="subtitle is-6">brands Table:</h2>
+    <ul>
+      <li>
+        <strong>id</strong> (Integer, primary key): Unique identifier for each
+        brand.
+      </li>
+      <li><strong>brand_name</strong> (String): Name of the brand.</li>
+    </ul>
+  </div>
+
+  <h1 class="title is-4">Data Integration and Relationships:</h1>
+  <ul>
+    <li>
+      <strong>makeup_products</strong> references
+      <code>product_categories</code> through the
+      <strong>product_category_id</strong> column and
+      <code>brands</code> through the <strong>brand_id</strong> column.
+    </li>
+    <li>
+      Each product in <strong>makeup_products</strong> is associated with a
+      specific product category and brand, ensuring accurate categorization and
+      consistent brand referencing.
+    </li>
+    <li>
+      The <code>product_categories</code> table maintains unique combinations of
+      <strong>product_type</strong> and <strong>product_category</strong>,
+      facilitating efficient querying and filtering based on various product
+      attributes.
+    </li>
+    <li>
+      The <code>brands</code> table ensures that brand names are consistently
+      referenced across products, enhancing data integrity and usability.
+    </li>
+  </ul>
+
+  <h1 class="title is-4">ERD Diagram</h1>
+
+  <p>
+    Below is the ERD diagram that illustrates the relationships between the
+    tables in our database:
+  </p>
+  <%= image_tag 'erd.jpg', alt: 'ERD Diagram', style: 'max-width: 100%; height:
+  auto;' %>
+
+  <h1 class="title is-4">Application Functionality:</h1>
+  <ul>
+    <li>Users can browse and filter products by brand and category.</li>
+    <li>
+      Detailed product information, including descriptions, tags, prices, and
+      images, enhances user experience and decision-making.
+    </li>
+    <li>
+      The structured database schema supports robust querying and filtering
+      capabilities, optimizing performance and user interaction.
+    </li>
+  </ul>
+
+  <h1 class="title is-4">Conclusion:</h1>
+  <p>
+    This setup not only ensures accurate categorization and brand referencing
+    but also enhances user navigation and exploration of makeup products,
+    leveraging a well-organized database structure and intuitive application
+    design.
+  </p>
+</div>

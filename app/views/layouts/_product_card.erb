@@ -1,24 +1,32 @@
 <% if makeup_product %>
- <div class="column is-one-quarter">
+<div class="column is-one-quarter">
+  <a href="<%= makeup_product_path(makeup_product) %>" class="card-link">
     <div class="card">
       <div class="card-image">
         <figure class="image is-3by4">
           <% if makeup_product.api_featured_image.present? %>
-            <%= image_tag makeup_product.api_featured_image, class: "product-image" %>
+          <%= image_tag makeup_product.api_featured_image, class: "product-image" %>
           <% else %>
-            <%= image_tag 'default-image.png', class: "product-image" %>
+          <%= image_tag 'default-image.png', class: "product-image" %>
           <% end %>
         </figure>
       </div>
       <div class="card-content">
         <h1 class="subtitle"><%= makeup_product.product_name %></h1>
-        <p><strong>Brand:</strong> <%= makeup_product.brand.brand_name.capitalize %></p>
-        <p><strong>Category:</strong> <%= makeup_product.product_category.product_type %></p>
-        <p><strong>Price:</strong> <%= number_to_currency(makeup_product.price, unit: "$") %></p>
-        <%= link_to 'View details', makeup_product_path(makeup_product), class: 'button is-danger is-light mt-4' %>
+        <p>
+          <strong>Brand:</strong> <%= makeup_product.brand.brand_name.capitalize%>
+        </p>
+        <p>
+          <strong>Category:</strong> <%= makeup_product.product_category.product_type %>
+        </p>
+        <p>
+          <strong>Price:</strong> <%= number_to_currency(makeup_product.price, unit: "$") %>
+        </p>
+        <%= link_to 'View details', makeup_product_path(makeup_product), class:'button is-danger is-light mt-4' %>
       </div>
     </div>
-    </div>
+  </a>
+</div>
 <% else %>
-  <p>No product data available.</p>
+<p>No product data available.</p>
 <% end %>

@@ -1,15 +1,15 @@
 <section class="hero">
-<div class="hero-body">
-<h1 class="title is-4 has-text-danger	">Explore by Brands</h1>
-</div>
+  <div class="hero-body">
+    <h1 class="title is-4 has-text-danger">Explore by Brands</h1>
+  </div>
 </section>
 
 <div class="grid is-col-min-12 row-gap-6">
   <% @brand.each do |brand| %>
-    <div class="cell">
+  <div class="cell">
     <div class="box">
-    <%= link_to brand.brand_name.capitalize, brand_path(brand) %>
+      <%= link_to brand.brand_name.capitalize, brand_path(brand) %>
     </div>
-    </div>
+  </div>
   <% end %>
 </div>
