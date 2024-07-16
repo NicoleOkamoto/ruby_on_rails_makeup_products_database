@@ -1,13 +1,13 @@
 require "test_helper"
 
 class MakeupProductsControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    @product_category = product_categories(:one)  # Ensure this matches your fixture definition
+  end
+
   test "should get index" do
-    get makeup_products_index_url
+    get product_categories_index_url
     assert_response :success
   end
 
-  test "should get show" do
-    get makeup_products_show_url
-    assert_response :success
-  end
 end

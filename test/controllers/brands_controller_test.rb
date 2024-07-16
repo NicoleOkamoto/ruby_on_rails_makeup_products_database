@@ -7,7 +7,8 @@ class BrandsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get brands_show_url
+    brand_one = brands(:one)
+    get brand_url(brand_one)
     assert_response :success
   end
 end

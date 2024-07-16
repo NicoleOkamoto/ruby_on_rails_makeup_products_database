@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get "product_categories/show"
   get "brands/index"
   get "brands/show"
-      get "about", to: "pages#about"
-   get "product", to: "pages#product"
+  get "about", to: "pages#about", as: "about"
+  get "product", to: "pages#product"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :brands, only: [ :index, :show ]
