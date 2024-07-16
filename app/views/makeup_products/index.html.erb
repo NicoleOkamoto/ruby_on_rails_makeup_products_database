@@ -7,13 +7,18 @@
   </div>
 </section>
 
+<% if @makeup_products.present? %>
 <%= will_paginate @makeup_products, renderer: BulmaPagination::Rails, class:
 'is-small is-centered' %>
 
 <div class="columns is-multiline">
-  <% @makeup_products.each do |product| %> <%= render 'layouts/product_card',
-  makeup_product: product %> <% end %>
+  <% @makeup_products.each do |product| %>
+    <%= render 'layouts/product_card', makeup_product: product %> <% end %>
 </div>
+<% else %>
+      <p>No products found matching your search criteria.</p>
+    <% end %>
+  </div>
 
 <%= will_paginate @makeup_products, renderer: BulmaPagination::Rails, class:
 'is-centered' %>
