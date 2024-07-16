@@ -9,5 +9,4 @@ class MakeupProductsControllerTest < ActionDispatch::IntegrationTest
     get product_categories_index_url
     assert_response :success
   end
-
 end
