@@ -18,7 +18,9 @@
 <% else %>
       <p>No products found matching your search criteria.</p>
     <% end %>
-  </div>
 
-<%= will_paginate @makeup_products, renderer: BulmaPagination::Rails, class:
+
+<div><%= will_paginate @makeup_products, renderer: BulmaPagination::Rails, class:
 'is-centered' %>
+</div>
+  </div>
