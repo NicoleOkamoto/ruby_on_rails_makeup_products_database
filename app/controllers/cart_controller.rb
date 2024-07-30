@@ -1,7 +1,6 @@
 class CartController < ApplicationController
   def show
-    @render_cart = false
-
+    @render_cart = true
   end
 
   def add
@@ -17,10 +16,13 @@ class CartController < ApplicationController
     end
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: [turbo_stream.replace('cart',
+        render turbo_stream: [turbo_stream.update('cart',
                                                    partial: 'cart/cart',
-                                                   locals: { cart: @cart }),
-                              turbo_stream.replace(@product)]
+                                                   locals: { cart: @cart.orderables }),
+                              turbo_stream.replace('cart_content',
+                                                   partial: 'cart/orderables',
+                                                   locals: { orderables: @cart.orderables})
+      ]
       end
     end
   end
@@ -29,10 +31,14 @@ class CartController < ApplicationController
     Orderable.find_by(id: params[:id]).destroy
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace('cart',
-                                                  partial: 'cart/cart',
-                                                  locals: { cart: @cart })
+        render turbo_stream: [turbo_stream.replace('cart_content',
+                                                   partial: 'cart/orderables',
+                                                   locals: { orderables: @cart.orderables}),
+                              turbo_stream.update('cart',
+                                                   partial: 'cart/cart',
+                                                   locals: { orderables: @cart})
+      ]
+      end
       end
     end
   end
-end
