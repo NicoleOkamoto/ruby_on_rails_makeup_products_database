@@ -5,7 +5,7 @@ class CartController < ApplicationController
   end
 
   def add
-    @makeup_product = MakeupProduct.find_by(id: params[:makeup_product_id])
+    @makeup_product = MakeupProduct.find_by(id: params[:id])
     quantity = params[:quantity].to_i
     current_orderable = @cart.orderables.find_by(makeup_product_id: @makeup_product.id)
     if current_orderable && quantity > 0
