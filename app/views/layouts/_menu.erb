@@ -10,7 +10,7 @@
     </a>
   </div>
 
-  <div id="navbarMenu" class="navbar-menu">
+  <div id="navbarMenu" class="navbar-menu horizontal-align-bottom">
     <div class="navbar-start">
       <%= link_to 'Home', root_path, class: 'navbar-item' %>
       <%= link_to 'About', about_path, class: 'navbar-item' %>
@@ -25,19 +25,32 @@
       </div>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <%= form_with(url: makeup_products_path, method: :get, local: true, class: "search-form") do %>
-          <div class="field has-addons">
-            <div class="control">
-              <%= text_field_tag :search, params[:search], placeholder: "Search products", class: "input" %>
-            </div>
-            <div class="control">
-              <%= submit_tag "Search", class: "button is-danger is-light" %>
-            </div>
+
+  <div class="navbar-end vertical-align">
+    <!-- Cart Turbo Frame -->
+
+    <div class="navbar-item mb-0">
+      <%= link_to cart_path, class: 'cart-link' do %>
+       <%= image_tag 'pngfind.com-cart-icon-png-1434613.png', alt: 'Cart Icon' %>
+      <% end %>
+      <%= turbo_frame_tag "cart" do %>
+           <%= "#{@cart.orderables.count} items" %>
+      <% end %>
+    </div>
+
+
+    <!-- Search Form -->
+    <div class="navbar-item">
+      <%= form_with(url: makeup_products_path, method: :get, local: true, class: "search-form") do %>
+        <div class="field has-addons">
+          <div class="control">
+            <%= text_field_tag :search, params[:search], placeholder: "Search products", class: "input" %>
           </div>
-        <% end %>
-      </div>
+          <div class="control">
+            <%= submit_tag "Search", class: "button is-danger is-light" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </nav>
