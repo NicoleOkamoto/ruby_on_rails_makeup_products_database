@@ -34,7 +34,7 @@
        <%= image_tag 'pngfind.com-cart-icon-png-1434613.png', alt: 'Cart Icon' %>
       <% end %>
       <%= turbo_frame_tag "cart" do %>
-           <%= "#{@cart.orderables.count} items" %>
+        <%= render partial: "cart/cart" %>
       <% end %>
     </div>
 
