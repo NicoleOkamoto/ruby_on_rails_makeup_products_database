@@ -33,10 +33,18 @@
               <%= image_tag 'canadian_icon.png', style: 'width: 64px; height: 64px;' %>
             </figure>
             <% end %>
+            <%= form_with(url: cart_add_path) do |f| %>
+              <%= f.hidden_field :makeup_product_id, value: @makeup_product.id %>
+              <%= f.number_field :quantity, value: 0, min: 1 %>
+              <%= f.submit "Add To Cart" %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
+
+
+
 
     <div class="column is-half">
       <div class="media-card">

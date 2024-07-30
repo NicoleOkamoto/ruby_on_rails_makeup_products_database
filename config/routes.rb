@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "brands/show"
   get "about", to: "pages#about", as: "about"
   get "product", to: "pages#product"
+  get "cart", to: "cart#show"
+  post "cart/add"
+  post "cart/remove"
+  resources :makeup_products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :brands, only: [ :index, :show ]

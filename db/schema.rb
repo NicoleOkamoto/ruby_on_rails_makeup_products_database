@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_07_15_202209) do
+ActiveRecord::Schema[7.2].define(version: 2024_07_29_205034) do
   create_table "brands", force: :cascade do |t|
     t.string "brand_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,10 +36,23 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_15_202209) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orderables", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "makeup_product_id", null: false
+    t.integer "cart_id", null: false
+    t.integer "quantity"
+    t.index ["cart_id"], name: "index_orderables_on_cart_id"
+    t.index ["makeup_product_id"], name: "index_orderables_on_makeup_product_id"
+  end
+
   create_table "product_categories", force: :cascade do |t|
     t.string "product_type"
     t.string "product_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "orderables", "carts"
+  add_foreign_key "orderables", "makeup_products"
 end

@@ -19,7 +19,12 @@
     javascript_importmap_tags %>
   </head>
   <div class="container">
-    <header><%= render 'layouts/menu' %></header>
+
+    <header>
+      <%= render partial: "cart/cart" if @render_cart %>
+      <%= render 'layouts/menu' %>
+
+    </header>
 
     <body>
       <%= yield %>

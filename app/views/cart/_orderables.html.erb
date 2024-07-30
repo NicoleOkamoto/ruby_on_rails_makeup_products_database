@@ -1,0 +1,28 @@
+
+<% @cart.orderables.each do |orderable| %>
+  <% makeup_product = orderable.makeup_product %>
+  <div id="<%= "cart-#{makeup_product.id}" %>">
+
+        <strong><%= makeup_product.product_name %></strong>
+
+          <strong>Brand:</strong> <%= makeup_product.brand.brand_name.capitalize%>
+
+          <strong>Category:</strong> <%= makeup_product.product_category.product_type %>
+
+          <strong>Price:</strong> <%= number_to_currency(makeup_product.price, unit: "$") %>
+
+           <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: makeup_product.id %>
+        <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
+        <%= f.submit "Add To Cart" %>
+      <% end %>
+      <%= form_with(url: cart_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: orderable.id %>
+        <%= f.submit "X" %>
+      <% end %>
+      <strong>Total:</strong>
+      <%= orderable.total %>
+    </div>
+
+<% end %>
+
