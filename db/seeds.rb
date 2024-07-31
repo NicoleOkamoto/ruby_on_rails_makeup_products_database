@@ -52,3 +52,4 @@ puts "Total Product Categories: #{ProductCategory.count}"
 puts "Total Brands: #{Brand.count}"
 puts "Unique Product Types: #{product_types.to_a}"
 puts "Unique Brands: #{brands.to_a}"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

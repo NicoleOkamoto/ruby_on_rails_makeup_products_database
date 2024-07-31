@@ -7,6 +7,7 @@ gem "bulma-rails", "~> 1.0.0"
 # Pagination
 gem "will_paginate", "~> 3.3"
 gem "will_paginate-bulma"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
@@ -53,7 +54,6 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
 end
 
 group :test do
@@ -64,6 +64,11 @@ group :test do
 end
 
 gem "dartsass-rails", "~> 0.5.0"
-gem 'sassc-rails'
-
+gem "sassc-rails"
 gem "devise", "~> 4.9"
+
+gem "activeadmin", "~> 3.2.2"
+gem "cancancan"
+gem "draper"
+gem "pundit"
+gem "kaminari"

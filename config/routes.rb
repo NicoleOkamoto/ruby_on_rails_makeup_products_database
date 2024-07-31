@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
+  # Devise routes for Admins with custom controllers
   devise_for :admins, controllers: {
     sessions: "admin/sessions",
     registrations: "admin/registrations"
   }
 
+  # Devise routes for Users with custom controllers
   devise_for :users, controllers: {
     sessions: "users/sessions"
   }
+
+  # Active Admin routes
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   get "users/admins"
   root "makeup_products#index"
