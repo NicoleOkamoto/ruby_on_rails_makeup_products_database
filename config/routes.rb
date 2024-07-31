@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :admins, controllers: {
+    sessions: "admin/sessions",
+    registrations: "admin/registrations"
+  }
+
+  devise_for :users, controllers: {
+    sessions: "users/sessions"
+  }
+
+  get "users/admins"
   root "makeup_products#index"
   get "makeup_products/index"
   get "makeup_products/show"

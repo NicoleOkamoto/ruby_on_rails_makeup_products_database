@@ -65,3 +65,5 @@ end
 
 gem "dartsass-rails", "~> 0.5.0"
 gem 'sassc-rails'
+
+gem "devise", "~> 4.9"

@@ -1,3 +1,20 @@
+<% if user_signed_in? %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+  <%= link_to "Edit registration", edit_user_registration_path %>
+<% elsif !admin_signed_in? %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Sign in", new_user_session_path %>
+<% end %>
+
+<% if admin_signed_in? %>
+  <%= link_to "Admin Sign Out", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } %>
+  <%= link_to "Admin Edit registration", edit_admin_registration_path %>
+<% elsif !user_signed_in? %>
+  <%= link_to "Admin Sign up", new_admin_registration_path %>
+  <%= link_to "Admin Sign in", new_admin_session_path %>
+<% end %>
+
+
 <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <%= link_to root_path, class: 'navbar-item' do %>
