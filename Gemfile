@@ -67,7 +67,7 @@ gem "dartsass-rails", "~> 0.5.0"
 gem "sassc-rails"
 gem "devise", "~> 4.9"
 
-gem "activeadmin", "~> 3.2.2"
+gem "activeadmin", "~> 3.2.3"
 gem "cancancan"
 gem "draper"
 gem "pundit"
