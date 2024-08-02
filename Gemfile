@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.0.beta3"
 # Bulma for styling
-gem "bulma-rails", "~> 1.0.0"
+gem "bulma-rails", "~> 1.0.2"
 # Pagination
 gem "will_paginate", "~> 3.3"
 gem "will_paginate-bulma"
